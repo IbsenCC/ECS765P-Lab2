@@ -26,11 +26,8 @@ public class GRPCClientService {
 		return helloResponse.getPong();
     }
     public String add(){
-		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",9090)
-		.usePlaintext()
-		.build();
-		MatrixServiceGrpc.MatrixServiceBlockingStub stub
-		 = MatrixServiceGrpc.newBlockingStub(channel);
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",9090).usePlaintext().build();
+		MatrixServiceGrpc.MatrixServiceBlockingStub stub = MatrixServiceGrpc.newBlockingStub(channel);
 		MatrixReply A=stub.addBlock(MatrixRequest.newBuilder()
 			.setA00(1)
 			.setA01(2)
@@ -41,7 +38,8 @@ public class GRPCClientService {
 			.setB10(5)
 			.setB11(6)
 			.build());
-		String resp= A.getC00()+" "+A.getC01()+"<br>"+A.getC10()+" "+A.getC11()+"\n";
+		String resp = A.getC00()+A.getC01()+A.getC10()+A.getC11()+"";
+//		String resp = A.getC00()+" "+A.getC01()+"<br>"+A.getC10()+" "+A.getC11()+"\n";
 		return resp;
     }
 }
