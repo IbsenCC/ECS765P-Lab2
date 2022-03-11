@@ -28,8 +28,8 @@ public class PingPongEndpoint {
 		public String add() {
 			return grpcClientService.add();
 		}
-	@GetMapping("/add")
-		public String add() {
-			return grpcClientService.add();
+	@GetMapping("/multiply")
+		public String multiply() {
+			return grpcClientService.multiply();
 		}
 }
