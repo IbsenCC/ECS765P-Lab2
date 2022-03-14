@@ -14,21 +14,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class GRPCClientService {
     public String ping() {
-        	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
-                .usePlaintext()
-                .build();        
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
+            .usePlaintext()
+            .build();        
 		PingPongServiceGrpc.PingPongServiceBlockingStub stub
-                = PingPongServiceGrpc.newBlockingStub(channel);        
+			= PingPongServiceGrpc.newBlockingStub(channel);        
 		PongResponse helloResponse = stub.ping(PingRequest.newBuilder()
-                .setPing("")
-                .build());        
+            .setPing("")
+            .build());        
 		channel.shutdown();        
 		return helloResponse.getPong();
     }
 	public String multiply(){
-		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",9090).usePlaintext().build();
-		MatrixServiceGrpc.MatrixServiceBlockingStub stub = MatrixServiceGrpc.newBlockingStub(channel);
-		MatrixReply A=stub.multiplyBlock(MatrixRequest.newBuilder()
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",9090)
+			.usePlaintext()
+			.build();
+		MatrixServiceGrpc.MatrixServiceBlockingStub stub 
+			= MatrixServiceGrpc.newBlockingStub(channel);
+		MatrixReply A = stub.multiplyBlock(MatrixRequest.newBuilder()
 			.setA00(1)
 			.setA01(2)
 			.setA10(5)
@@ -43,9 +46,12 @@ public class GRPCClientService {
 		return resp;
 	}
     public String add(){
-		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",9090).usePlaintext().build();
-		MatrixServiceGrpc.MatrixServiceBlockingStub stub = MatrixServiceGrpc.newBlockingStub(channel);
-		MatrixReply A=stub.addBlock(MatrixRequest.newBuilder()
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",9090)
+			.usePlaintext()
+			.build();
+		MatrixServiceGrpc.MatrixServiceBlockingStub stub = 
+			MatrixServiceGrpc.newBlockingStub(channel);
+		MatrixReply A = stub.addBlock(MatrixRequest.newBuilder()
 			.setA00(1)
 			.setA01(2)
 			.setA10(5)
