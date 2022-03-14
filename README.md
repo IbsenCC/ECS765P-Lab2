@@ -1,4 +1,4 @@
-# ECS656U-765PLab2StartingPoint
+# ECS765PLab2
 
 Based upon <https://github.com/sajeerzeji/SpringBoot-GRPC>
 
