@@ -1,4 +1,4 @@
-# ECS765PLab2
+# ECS796PLab2
 
 Based upon <https://github.com/sajeerzeji/SpringBoot-GRPC>
 
