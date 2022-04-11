@@ -17,13 +17,13 @@ public class PingPongEndpoint {
 
 	GRPCClientService grpcClientService;    
 	@Autowired
-    	public PingPongEndpoint(GRPCClientService grpcClientService) {
-        	this.grpcClientService = grpcClientService;
-    	}    
+		public PingPongEndpoint(GRPCClientService grpcClientService) {
+			this.grpcClientService = grpcClientService;
+		}
 	@GetMapping("/ping")
-    	public String ping() {
-        	return grpcClientService.ping();
-    	}
+		public String ping() {
+			return grpcClientService.ping();
+		}
     @GetMapping("/add")
 		public String add() {
 			return grpcClientService.add();
